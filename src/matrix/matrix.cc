@@ -154,7 +154,21 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T>& rhs) {
   
     return result;
 }
-
+//+ scalar
+template<typename T>
+Matrix<T> Matrix<T>::operator+(const int scalar) {
+    // Create new matrix to store result, initialize to zero
+    Matrix<T> result(rows, cols, (T)0.0);
+  
+    // Add each matrix element-by-element
+    for (unsigned int i=0; i<rows; i++) {
+        for (unsigned int j=0; j<cols; j++) {
+            result(i,j) = this->mat[i][j] + scalar;
+        }
+    }
+  
+    return result;
+}
 //*
 template<typename T>
 Matrix<T> Matrix<T>::operator*(const Matrix<T>& rhs) {
