@@ -155,4 +155,21 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T>& rhs) {
     return result;
 }
 
+//*
+template<typename T>
+Matrix<T> Matrix<T>::operator*(const Matrix<T>& rhs) {
+    // Create new matrix to store result, initialize to zero
+    Matrix<T> result(rows, cols, (T)0.0);
+  
+    // Multiply
+    for (unsigned int i=0; i<rows; i++) {
+        for (unsigned int j=0; j<cols; j++) {
+            for (unsigned int k = 0; k<rows, k++){
+                result[i][j] += this->mat[i][k] * rhs[k][j];
+            }
+        }
+    }
+  
+    return result;
+}
 #endif // CW13_MATRIX_CPP_
