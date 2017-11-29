@@ -165,7 +165,7 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T>& rhs) {
     for (unsigned int i=0; i<rows; i++) {
         for (unsigned int j=0; j<cols; j++) {
             for (unsigned int k = 0; k<rows, k++){
-                result[i][j] += this->mat[i][k] * rhs[k][j];
+                result[i][j] += (*this)(i,k) * rhs(k,j);
             }
         }
     }
