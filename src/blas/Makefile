@@ -1,4 +1,4 @@
-all: boost_matrix
+all: complexP
 
 clean:
-	rm -f boost_matrix
+	rm -f complexP
