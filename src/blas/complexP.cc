@@ -1,6 +1,7 @@
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
 #include <iostream>
+
 int main(int argc, char **argv) 
 {
   // exploit namespaces to shorten code
@@ -31,6 +32,11 @@ int main(int argc, char **argv)
   }
 
   // print to screen as demonstration
-  cout << "m:" << endl;
-  cout << m << endl;
+    
+  for (unsigned int i=0; i<xlen; i++) {
+        for (unsigned int j=0; j<ylen; j++) {
+            std::cout << m(i,j) << "\t";
+        }
+        std::cout << std::endl;
+    }
 }
