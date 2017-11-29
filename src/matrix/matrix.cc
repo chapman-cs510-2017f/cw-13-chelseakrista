@@ -156,7 +156,7 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T>& rhs) {
 }
 //+ scalar
 template<typename T>
-Matrix<T> Matrix<T>::operator+(const int scalar) {
+Matrix<T> Matrix<T>::operator+(int scalar) {
     // Create new matrix to store result, initialize to zero
     Matrix<T> result(rows, cols, (T)0.0);
   
@@ -187,7 +187,7 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T>& rhs) {
     return result;
 }
 
-void save(string filename){
+save(string filename){
     ofstream myfile;
     myfile.open("matrix.csv");
     for (unsigned int i=0; i<rows; i++) {
