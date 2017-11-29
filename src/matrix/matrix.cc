@@ -1,7 +1,7 @@
 // Pre-processor directives to prevent redundant library loading
 #ifndef CW13_MATRIX_CPP_
 #define CW13_MATRIX_CPP_
-
+#include <fstream>
 // include the header declarations
 #include "matrix.h"
 
@@ -172,4 +172,19 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T>& rhs) {
   
     return result;
 }
+
+void save(string filename){
+    ofstream myfile;
+    myfile.open("matrix.csv");
+    for (unsigned int i=0; i<rows; i++) {
+        for (unsigned int j=0; j<cols; j++) {
+             myfile << this->mat[i][j];
+             if (j != cols){
+             myfile << ',';}
+            }
+        }
+        myfile << '\n';
+}
+  
+
 #endif // CW13_MATRIX_CPP_
