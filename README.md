@@ -1,9 +1,8 @@
 # CS510 CW 13
 
-**Author(s):** **CHANGEME**
+**Author(s):** **Sharon Kim, Kristalee Lio, Chelsea Parlett-Pelleriti**
 
-[![Build Status](https://travis-ci.org/chapman-cs510-2017f/cw-13-YOURNAME.svg?branch=master)](https://travis-ci.org/chapman-cs510-2017f/cw-13-YOURNAME)
-
+[![Build Status](https://travis-ci.org/chapman-cs510-2017f/cw-13-chelseakristasharon.svg?branch=master)](https://travis-ci.org/chapman-cs510-2017f/cw-13-chelseakristasharon)
 ## Specification
 
 **Note: Remember this is a C++ project.**
@@ -35,7 +34,7 @@ Complete the following exercises, saving your solutions in the indicated files.
 
 Analyze in this section what you found useful about this assignment in your own words. Include any lingering questions or comments that you may have.
 
-**CHANGEME**
+**In this assignment we continued to work on C++. We used the Boost C++ library and uBLAS to create a complex matrix, similar to what was done in python.  We also created a matrix with the templates that were given within C++. There are many ways to complete the same task within C++. **
 
 ## Honor Pledge
 

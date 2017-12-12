@@ -2,6 +2,9 @@
 #ifndef CW13_MATRIX_CPP_
 #define CW13_MATRIX_CPP_
 #include <fstream>
+#include <iostream>
+#include <string>
+#include <sstream>
 // include the header declarations
 #include "matrix.h"
 
@@ -156,7 +159,7 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T>& rhs) {
 }
 //+ scalar
 template<typename T>
-Matrix<T> Matrix<T>::operator+(int scalar) {
+Matrix<T> Matrix<T>::operator+(const T& scalar) {
     // Create new matrix to store result, initialize to zero
     Matrix<T> result(rows, cols, (T)0.0);
   
@@ -173,12 +176,12 @@ Matrix<T> Matrix<T>::operator+(int scalar) {
 template<typename T>
 Matrix<T> Matrix<T>::operator*(const Matrix<T>& rhs) {
     // Create new matrix to store result, initialize to zero
-    Matrix<T> result(rows, cols, (T)0.0);
+    Matrix<T> result(rows, rhs.cols, (T)0.0);
   
     // Multiply
     for (unsigned int i=0; i<rows; i++) {
-        for (unsigned int j=0; j<cols; j++) {
-            for (unsigned int k = 0; k<rows, k++){
+        for (unsigned int j=0; j<rhs.cols; j++) {
+            for (unsigned int k = 0; k<rows; k++) {
                 result[i][j] += (*this)(i,k) * rhs(k,j);
             }
         }
@@ -187,18 +190,38 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T>& rhs) {
     return result;
 }
 
-save(string filename){
-    ofstream myfile;
-    myfile.open("matrix.csv");
+template<typename T>
+unsigned int Matrix<T>::save(std::string filename)
+{
+    std::ofstream myfile;
+    myfile.open(filename);
+    
     for (unsigned int i=0; i<rows; i++) {
         for (unsigned int j=0; j<cols; j++) {
-             myfile << this->mat[i][j];
-             if (j != cols){
-             myfile << ',';}
+             T val = this->mat[i][j];
+             myfile <<val<< ',';
             }
+        myfile << std::endl;
         }
-        myfile << '\n';
+        myfile.close();
+        return 0;
 }
-  
+
+//*********************
+//
+// PRINT
+//
+//*********************
+
+template<typename T>
+void Matrix<T>::print()
+{
+    for (unsigned int i=0; i<rows; i++) {
+        for (unsigned int j=0; j<cols; j++) {
+            std::cout << this->mat[i][j]<<"\t";
+        }
+        std::cout << std::endl;
+    }
+}
 
 #endif // CW13_MATRIX_CPP_

@@ -1,5 +1,7 @@
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
+#include <iostream>
+#include <array>
 
 int main(int argc, char **argv) 
 {
@@ -26,6 +28,18 @@ int main(int argc, char **argv)
       o(r,c) = std::pow(n(r,c), 2);
     }
   }
+    
+  std::array<int,3> real = {-1, 0, 1};
+  std::array<int,3> imag = {-1, 0, 1};
+  int rs = real.size()-1;
+    
+  matrix<std::complex<long double> > p(3,3);
+    
+  for (unsigned r = 0; r < real.size(); r++) {
+      for (unsigned c = 0; c < imag.size(); c++) {
+          p(r,c) = real[rs-r] + imag[c] * std::complex<long double>(0,1);
+      }
+  }
 
   // print to screen as demonstration
   cout << "m:" << endl;
@@ -40,4 +54,13 @@ int main(int argc, char **argv)
   cout << prod(m, n) << endl;
   cout << endl << "n * n - o:" << endl;
   cout << prod(n, n) - o << endl;
+    
+  cout << "complex plane:" << endl;
+    for(unsigned i = 0;i<p.size1();i++) {
+        for (unsigned j = 0; j<p.size2();++j)
+        {
+            cout<<p(i,j);
+        }
+        cout<<endl;
+    }
 }

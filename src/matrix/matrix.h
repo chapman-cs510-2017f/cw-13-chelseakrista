@@ -37,6 +37,12 @@ template <typename T> class Matrix {
         // Addition + operator between matrices
         Matrix<T> operator+(const Matrix<T>& rhs);
     
+        // Multiplication * operator between matrices
+        Matrix<T> operator*(const Matrix<T>& rhs);
+
+        // Addition + operator for scalar
+        Matrix<T> operator+(const T& scalar);
+    
         // Selection operator (i,j) to access elements
         T& operator()(const unsigned int &row, const unsigned int &col);
         const T& operator()(const unsigned int &row, const unsigned int &col) const;
@@ -44,6 +50,11 @@ template <typename T> class Matrix {
         // Accessor methods for row and column sizes
         unsigned int get_rows() const;
         unsigned int get_cols() const;
+    
+        //print matrix
+        void print();
+        
+        unsigned int save(std::string filename);
   
 };
 
